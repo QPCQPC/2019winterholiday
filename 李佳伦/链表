@@ -1,0 +1,92 @@
+#include<iostream>
+#include<string>
+using namespace std;
+class A
+{
+public:
+    string name;
+    int number;
+    A *next;
+};
+void show(A *H)
+{
+    A *p=H;
+    while(p)
+    {
+        cout<<"name"<<p->name<<"\n"<<"number"<<p->number<<"\n";
+        p=p->next;
+    }
+}
+void inser(A *H,string na,int nu)
+{
+    A *p=H;
+    A *s=new A;
+    int n;
+    cout<<"zai di ji jie cha ru"<<"\n";
+    cin>>n;
+    for(int i=1;i>n;i++)
+    {
+        p=p->next;
+    }
+    s->name=na;
+    s->number=nu;
+    cout<<"Name";
+    cin>>na;
+    cout<<"Number";
+    cin>>nu;
+    s->next=p->next;
+    p->next=s;
+}
+void pop(A *H)
+{
+    A *p=H;
+    A *s=new A;
+    int n;
+    cout<<"shan chu di ji jie dian"<<"\n";
+    cin>>n;
+    for(int i=1;i<n;i++)
+    {
+        p=p->next;
+    }
+    p->next=p->next->next;
+
+}
+void push(A *H,string na,int nu)
+{
+    A *p=H;
+    A *s=new A;
+    while(p->next)
+    {p=p->next;}
+    cout<<"Name:";
+    cin>>na;
+    cout<<"Number:";
+    cin>>nu;
+    p->next=s;
+    s->name=na;
+    s->number=nu;
+    s->next=NULL;
+
+}
+int main()
+{
+    cout<<"let u see see,\n";
+    A *H=new A;
+    int n;
+    cout<<"an 1 zheng jia,an 2 xian shi,an 3 shan chu diji xiang,an 4charu,an5 ting zhi"<<"\n";
+    for(;;)
+    {
+        cin>>n;
+        if(n==1)
+            push(H,"asd",1);
+        if(n==2)
+            show(H);
+        if(n==3)
+            pop(H);
+        if(n==4)
+            inser(H,"asdd",1);
+        if(n==5)
+            break;
+
+    }
+
+}
